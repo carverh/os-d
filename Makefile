@@ -11,6 +11,10 @@ all: $(target) clean
 clean:
 	@rm -rf $(asm_objects) $(d_objects)
 
+iso: $(target)
+	@cp $(target) iso/boot
+	@grub-mkrescue -o os.iso iso
+
 $(target): $(d_objects) $(asm_objects)
 	@i386-elf-ld -nostdlib -nostartfiles -Tlinker.ld -n $(d_objects) $(asm_objects) -o $(target)
 
