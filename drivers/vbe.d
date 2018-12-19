@@ -1,6 +1,6 @@
 module drivers.vbe;
 
-struct vbe_mode {
+struct VbeMode {
   align(1):
     ushort attributes;
     ubyte window_a;
